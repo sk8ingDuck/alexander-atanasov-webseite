@@ -637,27 +637,37 @@ a { color: inherit; text-decoration: none; }
   to   { opacity: 1; }
 }
 
-.hero__badge {
+/* Default hidden until page-ready */
+.hero__badge,
+.hero__name,
+.hero__title,
+.hero__actions,
+.hero__chips-wrap {
+  opacity: 0;
+}
+
+/* Animate in after loader */
+html.page-ready .hero__badge {
   animation: heroFadeUp .7s cubic-bezier(.4,0,.2,1) both;
   animation-delay: 0s;
 }
 
-.hero__name {
+html.page-ready .hero__name {
   animation: heroFadeUp .7s cubic-bezier(.4,0,.2,1) both;
   animation-delay: .1s;
 }
 
-.hero__title {
+html.page-ready .hero__title {
   animation: heroFadeUp .7s cubic-bezier(.4,0,.2,1) both;
   animation-delay: .25s;
 }
 
-.hero__actions {
+html.page-ready .hero__actions {
   animation: heroFadeUp .7s cubic-bezier(.4,0,.2,1) both;
   animation-delay: .4s;
 }
 
-.hero__chips-wrap {
+html.page-ready .hero__chips-wrap {
   animation: heroFadeUp .7s cubic-bezier(.4,0,.2,1) both;
   animation-delay: .5s;
 }
@@ -669,6 +679,10 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   order: -1;
   min-width: 0;
+  opacity: 0;
+}
+
+html.page-ready .hero__image {
   animation: heroFadeIn .9s cubic-bezier(.4,0,.2,1) both;
   animation-delay: .2s;
 }
@@ -2263,4 +2277,160 @@ html.theme-transition .footer {
 /* Footer */
 [data-theme="dark"] .footer {
   border-color: var(--border);
+}
+
+/* ==========================================
+   PCB Loader
+   ========================================== */
+
+#pcb-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0D1117;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .45s ease;
+}
+
+#pcb-loader.pcb-loader--done {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pcb-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Traces */
+.pcb-trace {
+  fill: none;
+  stroke: #2563EB;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: url(#pcbGlow);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+/* CPU chip */
+.pcb-cpu {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pcbChipIn .18s ease forwards;
+  animation-delay: 0s;
+}
+
+/* IC chips */
+.pcb-ic {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Vias */
+.pcb-via {
+  fill: #2563EB;
+  stroke: #60A5FA;
+  stroke-width: 1;
+  filter: url(#pcbGlow);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* ---- Trace timing ---- */
+.pcb-t1  { animation: pcbTraceIn .45s ease forwards; animation-delay: .15s; }
+.pcb-t2  { animation: pcbTraceIn .45s ease forwards; animation-delay: .25s; }
+.pcb-t3  { animation: pcbTraceIn .28s ease forwards; animation-delay: .38s; }
+.pcb-t4  { animation: pcbTraceIn .28s ease forwards; animation-delay: .42s; }
+.pcb-t5  { animation: pcbTraceIn .38s ease forwards; animation-delay: .52s; }
+.pcb-t6  { animation: pcbTraceIn .38s ease forwards; animation-delay: .56s; }
+.pcb-t7  { animation: pcbTraceIn .40s ease forwards; animation-delay: .68s; }
+.pcb-t8  { animation: pcbTraceIn .40s ease forwards; animation-delay: .72s; }
+.pcb-t9  { animation: pcbTraceIn .22s ease forwards; animation-delay: .82s; }
+.pcb-t10 { animation: pcbTraceIn .22s ease forwards; animation-delay: .86s; }
+.pcb-t11 { animation: pcbTraceIn .22s ease forwards; animation-delay: .90s; }
+.pcb-t12 { animation: pcbTraceIn .22s ease forwards; animation-delay: .94s; }
+.pcb-t13 { animation: pcbTraceIn .22s ease forwards; animation-delay: 1.65s; }
+.pcb-t14 { animation: pcbTraceIn .22s ease forwards; animation-delay: 1.70s; }
+.pcb-t15 { animation: pcbTraceIn .28s ease forwards; animation-delay: .20s; }
+.pcb-t16 { animation: pcbTraceIn .28s ease forwards; animation-delay: .22s; }
+.pcb-t17 { animation: pcbTraceIn .40s ease forwards; animation-delay: .24s; }
+.pcb-t18 { animation: pcbTraceIn .40s ease forwards; animation-delay: .26s; }
+.pcb-t19 { animation: pcbTraceIn .28s ease forwards; animation-delay: .20s; }
+.pcb-t20 { animation: pcbTraceIn .28s ease forwards; animation-delay: .22s; }
+.pcb-t21 { animation: pcbTraceIn .40s ease forwards; animation-delay: .24s; }
+.pcb-t22 { animation: pcbTraceIn .40s ease forwards; animation-delay: .26s; }
+.pcb-t23 { animation: pcbTraceIn .40s ease forwards; animation-delay: .82s; }
+.pcb-t24 { animation: pcbTraceIn .40s ease forwards; animation-delay: .86s; }
+.pcb-t25 { animation: pcbTraceIn .35s ease forwards; animation-delay: .75s; }
+.pcb-t26 { animation: pcbTraceIn .35s ease forwards; animation-delay: .79s; }
+
+/* ---- IC chip timing ---- */
+.pcb-ic-1 { animation: pcbChipIn .22s ease forwards; animation-delay: .40s; }
+.pcb-ic-2 { animation: pcbChipIn .22s ease forwards; animation-delay: .50s; }
+.pcb-ic-3 { animation: pcbChipIn .22s ease forwards; animation-delay: .55s; }
+.pcb-ic-4 { animation: pcbChipIn .22s ease forwards; animation-delay: .65s; }
+.pcb-ic-5 { animation: pcbChipIn .22s ease forwards; animation-delay: .70s; }
+.pcb-ic-6 { animation: pcbChipIn .22s ease forwards; animation-delay: .78s; }
+.pcb-ic-7 { animation: pcbChipIn .22s ease forwards; animation-delay: .35s; }
+.pcb-ic-8 { animation: pcbChipIn .22s ease forwards; animation-delay: .68s; }
+
+/* ---- Resistor timing ---- */
+.pcb-res { opacity: 0; transform-box: fill-box; transform-origin: center; }
+.pcb-res-1 { animation: pcbChipIn .2s ease forwards; animation-delay: .58s; }
+.pcb-res-2 { animation: pcbChipIn .2s ease forwards; animation-delay: .64s; }
+.pcb-res-3 { animation: pcbChipIn .2s ease forwards; animation-delay: .70s; }
+.pcb-res-4 { animation: pcbChipIn .2s ease forwards; animation-delay: .76s; }
+.pcb-res-5 { animation: pcbChipIn .2s ease forwards; animation-delay: .82s; }
+
+/* ---- Capacitor timing ---- */
+.pcb-cap { opacity: 0; transform-box: fill-box; transform-origin: center; }
+.pcb-cap-1 { animation: pcbChipIn .2s ease forwards; animation-delay: .68s; }
+.pcb-cap-2 { animation: pcbChipIn .2s ease forwards; animation-delay: .74s; }
+.pcb-cap-3 { animation: pcbChipIn .2s ease forwards; animation-delay: .80s; }
+.pcb-cap-4 { animation: pcbChipIn .2s ease forwards; animation-delay: .86s; }
+
+/* ---- Crystal timing ---- */
+.pcb-xtal { opacity: 0; transform-box: fill-box; transform-origin: center; }
+.pcb-xtal-1 { animation: pcbChipIn .28s ease forwards; animation-delay: .88s; }
+.pcb-xtal-2 { animation: pcbChipIn .28s ease forwards; animation-delay: .94s; }
+
+/* ---- Via timing ---- */
+.pcb-via-1  { animation: pcbViaIn .18s ease forwards; animation-delay: .82s; }
+.pcb-via-2  { animation: pcbViaIn .18s ease forwards; animation-delay: .86s; }
+.pcb-via-3  { animation: pcbViaIn .18s ease forwards; animation-delay: .90s; }
+.pcb-via-4  { animation: pcbViaIn .18s ease forwards; animation-delay: .94s; }
+.pcb-via-5  { animation: pcbViaIn .18s ease forwards; animation-delay: .98s; }
+.pcb-via-6  { animation: pcbViaIn .18s ease forwards; animation-delay: 1.02s; }
+.pcb-via-7  { animation: pcbViaIn .18s ease forwards; animation-delay: .30s; }
+.pcb-via-8  { animation: pcbViaIn .18s ease forwards; animation-delay: .32s; }
+.pcb-via-9  { animation: pcbViaIn .18s ease forwards; animation-delay: .54s; }
+.pcb-via-10 { animation: pcbViaIn .18s ease forwards; animation-delay: .56s; }
+.pcb-via-11 { animation: pcbViaIn .18s ease forwards; animation-delay: .26s; }
+.pcb-via-12 { animation: pcbViaIn .18s ease forwards; animation-delay: .28s; }
+.pcb-via-13 { animation: pcbViaIn .18s ease forwards; animation-delay: 1.00s; }
+.pcb-via-14 { animation: pcbViaIn .18s ease forwards; animation-delay: 1.04s; }
+
+/* ---- Keyframes ---- */
+@keyframes pcbTraceIn {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes pcbChipIn {
+  from { opacity: 0; transform: scale(.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pcbViaIn {
+  from { opacity: 0; transform: scale(0); }
+  to   { opacity: 1; transform: scale(1); }
 }

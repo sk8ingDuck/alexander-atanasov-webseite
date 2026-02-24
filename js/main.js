@@ -1,6 +1,18 @@
 (() => {
   'use strict';
 
+  // --- PCB Loader ---
+  const loader = document.getElementById('pcb-loader');
+  if (loader) {
+    setTimeout(() => {
+      loader.classList.add('pcb-loader--done');
+      document.documentElement.classList.add('page-ready');
+      loader.addEventListener('transitionend', () => loader.remove(), { once: true });
+    }, 3000);
+  } else {
+    document.documentElement.classList.add('page-ready');
+  }
+
   // --- Particle Background ---
   const canvas = document.getElementById('bgParticles');
   const ctx = canvas.getContext('2d');

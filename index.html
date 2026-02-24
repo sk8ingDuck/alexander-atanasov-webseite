@@ -11,6 +11,346 @@
 </head>
 <body>
 
+  <!-- ==================== PCB Loader ==================== -->
+  <div id="pcb-loader" aria-hidden="true" role="presentation">
+    <svg class="pcb-svg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="pcbDots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+          <circle cx="15" cy="15" r="1" fill="rgba(37,99,235,0.15)"/>
+        </pattern>
+        <filter id="pcbGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="pcbGlowStrong" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="10" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- Board fill + dot grid -->
+      <rect x="0" y="0" width="1200" height="700" fill="url(#pcbDots)"/>
+      <!-- Board outline -->
+      <rect x="10" y="10" width="1180" height="680" rx="6" fill="none" stroke="rgba(37,99,235,0.1)" stroke-width="2"/>
+
+      <!-- ===== TRACES ===== -->
+      <!-- T1: center top-left → MEM-TL (diagonal route with bends) -->
+      <path class="pcb-trace pcb-t1" pathLength="1" d="M 510,295 L 510,195 L 213,195 L 213,57 L 195,57"/>
+      <!-- T2: center top-right → MEM-TR (diagonal route with bends) -->
+      <path class="pcb-trace pcb-t2" pathLength="1" d="M 690,295 L 690,195 L 987,195 L 987,57 L 1005,57"/>
+      <!-- T3: parallel bus upper left → IC-L -->
+      <path class="pcb-trace pcb-t3" pathLength="1" d="M 490,308 L 168,308"/>
+      <!-- T4: main center left → IC-L -->
+      <path class="pcb-trace pcb-t4" pathLength="1" d="M 490,320 L 150,320"/>
+      <!-- T5: parallel bus lower left → IC-L -->
+      <path class="pcb-trace pcb-t5" pathLength="1" d="M 490,332 L 168,332"/>
+      <!-- T6: parallel bus upper right → IC-R -->
+      <path class="pcb-trace pcb-t6" pathLength="1" d="M 710,308 L 1032,308"/>
+      <!-- T7: main center right → IC-R -->
+      <path class="pcb-trace pcb-t7" pathLength="1" d="M 710,320 L 1050,320"/>
+      <!-- T8: parallel bus lower right → IC-R -->
+      <path class="pcb-trace pcb-t8" pathLength="1" d="M 710,332 L 1032,332"/>
+      <!-- T9: center bottom-left → IC-BL -->
+      <path class="pcb-trace pcb-t9" pathLength="1" d="M 510,410 L 510,510 L 138,510 L 138,600"/>
+      <!-- T10: center bottom-right → IC-BR -->
+      <path class="pcb-trace pcb-t10" pathLength="1" d="M 690,410 L 690,510 L 1062,510 L 1062,600"/>
+      <!-- T11: parallel vertical bus center-top left -->
+      <path class="pcb-trace pcb-t11" pathLength="1" d="M 588,295 L 588,80"/>
+      <!-- T12: main vertical bus center-top center -->
+      <path class="pcb-trace pcb-t12" pathLength="1" d="M 600,295 L 600,80"/>
+      <!-- T13: parallel vertical bus center-top right -->
+      <path class="pcb-trace pcb-t13" pathLength="1" d="M 612,295 L 612,80"/>
+      <!-- T14: parallel vertical bus center-bottom left -->
+      <path class="pcb-trace pcb-t14" pathLength="1" d="M 588,415 L 588,620"/>
+      <!-- T15: main vertical bus center-bottom center -->
+      <path class="pcb-trace pcb-t15" pathLength="1" d="M 600,415 L 600,620"/>
+      <!-- T16: parallel vertical bus center-bottom right -->
+      <path class="pcb-trace pcb-t16" pathLength="1" d="M 612,415 L 612,620"/>
+      <!-- T17: MEM-TL bottom → IC-L vertical bus -->
+      <path class="pcb-trace pcb-t17" pathLength="1" d="M 90,108 L 90,290"/>
+      <!-- T18: MEM-TR bottom → IC-R vertical bus -->
+      <path class="pcb-trace pcb-t18" pathLength="1" d="M 1110,108 L 1110,290"/>
+      <!-- T19: MEM-TL left stub -->
+      <path class="pcb-trace pcb-t19" pathLength="1" d="M 50,42 L 15,42 L 15,88"/>
+      <!-- T20: MEM-TR right stub -->
+      <path class="pcb-trace pcb-t20" pathLength="1" d="M 1150,42 L 1185,42 L 1185,88"/>
+      <!-- T21: IC-L left stub (late) -->
+      <path class="pcb-trace pcb-t21" pathLength="1" d="M 30,308 L 5,308 L 5,340"/>
+      <!-- T22: IC-R right stub (late) -->
+      <path class="pcb-trace pcb-t22" pathLength="1" d="M 1170,308 L 1195,308 L 1195,340"/>
+      <!-- T23: IC-BL right → mid bottom -->
+      <path class="pcb-trace pcb-t23" pathLength="1" d="M 210,632 L 525,632"/>
+      <!-- T24: mid bottom → IC-BR left -->
+      <path class="pcb-trace pcb-t24" pathLength="1" d="M 675,632 L 990,632"/>
+      <!-- T25: IC-L bottom bus down -->
+      <path class="pcb-trace pcb-t25" pathLength="1" d="M 90,350 L 90,600"/>
+      <!-- T26: IC-R bottom bus down -->
+      <path class="pcb-trace pcb-t26" pathLength="1" d="M 1110,350 L 1110,600"/>
+
+      <!-- ===== VIAS ===== -->
+      <circle class="pcb-via pcb-via-1"  cx="510"  cy="195" r="5"/>
+      <circle class="pcb-via pcb-via-2"  cx="213"  cy="195" r="5"/>
+      <circle class="pcb-via pcb-via-3"  cx="690"  cy="195" r="5"/>
+      <circle class="pcb-via pcb-via-4"  cx="987"  cy="195" r="5"/>
+      <circle class="pcb-via pcb-via-5"  cx="510"  cy="510" r="5"/>
+      <circle class="pcb-via pcb-via-6"  cx="690"  cy="510" r="5"/>
+      <circle class="pcb-via pcb-via-7"  cx="588"  cy="295" r="5"/>
+      <circle class="pcb-via pcb-via-8"  cx="612"  cy="295" r="5"/>
+      <circle class="pcb-via pcb-via-9"  cx="588"  cy="415" r="5"/>
+      <circle class="pcb-via pcb-via-10" cx="612"  cy="415" r="5"/>
+      <circle class="pcb-via pcb-via-11" cx="90"   cy="195" r="5"/>
+      <circle class="pcb-via pcb-via-12" cx="1110" cy="195" r="5"/>
+      <circle class="pcb-via pcb-via-13" cx="138"  cy="510" r="5"/>
+      <circle class="pcb-via pcb-via-14" cx="1062" cy="510" r="5"/>
+
+      <!-- ===== CENTER TEXT (no chip) ===== -->
+      <g class="pcb-cpu" filter="url(#pcbGlowStrong)">
+        <!-- Subtle registration corner marks -->
+        <line x1="462" y1="238" x2="462" y2="268" stroke="#2563EB" stroke-width="1.5" opacity="0.45"/>
+        <line x1="462" y1="238" x2="492" y2="238" stroke="#2563EB" stroke-width="1.5" opacity="0.45"/>
+        <line x1="738" y1="238" x2="738" y2="268" stroke="#2563EB" stroke-width="1.5" opacity="0.45"/>
+        <line x1="738" y1="238" x2="708" y2="238" stroke="#2563EB" stroke-width="1.5" opacity="0.45"/>
+        <line x1="462" y1="428" x2="462" y2="398" stroke="#2563EB" stroke-width="1.5" opacity="0.45"/>
+        <line x1="462" y1="428" x2="492" y2="428" stroke="#2563EB" stroke-width="1.5" opacity="0.45"/>
+        <line x1="738" y1="428" x2="738" y2="398" stroke="#2563EB" stroke-width="1.5" opacity="0.45"/>
+        <line x1="738" y1="428" x2="708" y2="428" stroke="#2563EB" stroke-width="1.5" opacity="0.45"/>
+        <!-- Initials -->
+        <text x="600" y="390" text-anchor="middle" fill="#60A5FA"
+              font-family="'JetBrains Mono',monospace" font-size="155" font-weight="700" letter-spacing="14">A.A.</text>
+        <!-- Subtitle -->
+        <text x="600" y="422" text-anchor="middle" fill="rgba(59,130,246,0.55)"
+              font-family="'JetBrains Mono',monospace" font-size="16" letter-spacing="10">ATANASOV</text>
+      </g>
+
+      <!-- ===== IC CHIPS ===== -->
+      <!-- MEM-TL: rect(50,25,145,65), right at x=195, center (122,57) -->
+      <g class="pcb-ic pcb-ic-1" filter="url(#pcbGlow)">
+        <line x1="82"  y1="7"   x2="82"  y2="25"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="104" y1="7"   x2="104" y2="25"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="122" y1="7"   x2="122" y2="25"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="142" y1="7"   x2="142" y2="25"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="164" y1="7"   x2="164" y2="25"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="82"  y1="90"  x2="82"  y2="108" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="104" y1="90"  x2="104" y2="108" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="122" y1="90"  x2="122" y2="108" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="142" y1="90"  x2="142" y2="108" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="164" y1="90"  x2="164" y2="108" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="195" y1="40"  x2="213" y2="40"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="195" y1="57"  x2="213" y2="57"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="195" y1="74"  x2="213" y2="74"  stroke="#2563EB" stroke-width="1.8"/>
+        <rect x="50" y="25" width="145" height="65" rx="4" fill="#0f1e3d" stroke="#2563EB" stroke-width="1.5"/>
+        <path d="M 50,25 A 7,7 0 0 0 64,25" fill="none" stroke="#60A5FA" stroke-width="1.2"/>
+        <text x="122" y="52"  text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono',monospace" font-size="11" letter-spacing="1.5">MEM-01</text>
+        <text x="122" y="68"  text-anchor="middle" fill="#3B82F6" font-family="'JetBrains Mono',monospace" font-size="9">256K</text>
+      </g>
+
+      <!-- MEM-TR: rect(1005,25,145,65), left at x=1005, center (1078,57) -->
+      <g class="pcb-ic pcb-ic-2" filter="url(#pcbGlow)">
+        <line x1="1036" y1="7"   x2="1036" y2="25"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1058" y1="7"   x2="1058" y2="25"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1078" y1="7"   x2="1078" y2="25"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1098" y1="7"   x2="1098" y2="25"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1118" y1="7"   x2="1118" y2="25"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1036" y1="90"  x2="1036" y2="108" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1058" y1="90"  x2="1058" y2="108" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1078" y1="90"  x2="1078" y2="108" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1098" y1="90"  x2="1098" y2="108" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1118" y1="90"  x2="1118" y2="108" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="987"  y1="40"  x2="1005" y2="40"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="987"  y1="57"  x2="1005" y2="57"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="987"  y1="74"  x2="1005" y2="74"  stroke="#2563EB" stroke-width="1.8"/>
+        <rect x="1005" y="25" width="145" height="65" rx="4" fill="#0f1e3d" stroke="#2563EB" stroke-width="1.5"/>
+        <path d="M 1005,25 A 7,7 0 0 0 1019,25" fill="none" stroke="#60A5FA" stroke-width="1.2"/>
+        <text x="1078" y="52" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono',monospace" font-size="11" letter-spacing="1.5">MEM-02</text>
+        <text x="1078" y="68" text-anchor="middle" fill="#3B82F6" font-family="'JetBrains Mono',monospace" font-size="9">256K</text>
+      </g>
+
+      <!-- IC-L: rect(30,290,120,60), right at x=150, center (90,320) -->
+      <g class="pcb-ic pcb-ic-3" filter="url(#pcbGlow)">
+        <line x1="12"  y1="305" x2="30"  y2="305" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="12"  y1="320" x2="30"  y2="320" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="12"  y1="335" x2="30"  y2="335" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="150" y1="305" x2="168" y2="305" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="150" y1="320" x2="168" y2="320" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="150" y1="335" x2="168" y2="335" stroke="#2563EB" stroke-width="1.8"/>
+        <rect x="30" y="290" width="120" height="60" rx="4" fill="#0f1e3d" stroke="#2563EB" stroke-width="1.5"/>
+        <path d="M 30,290 A 6,6 0 0 0 42,290" fill="none" stroke="#60A5FA" stroke-width="1.2"/>
+        <text x="90" y="316" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono',monospace" font-size="11" letter-spacing="1.5">IC-L</text>
+        <text x="90" y="332" text-anchor="middle" fill="#3B82F6" font-family="'JetBrains Mono',monospace" font-size="9">I/O</text>
+      </g>
+
+      <!-- IC-R: rect(1050,290,120,60), left at x=1050, center (1110,320) -->
+      <g class="pcb-ic pcb-ic-4" filter="url(#pcbGlow)">
+        <line x1="1032" y1="305" x2="1050" y2="305" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1032" y1="320" x2="1050" y2="320" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1032" y1="335" x2="1050" y2="335" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1170" y1="305" x2="1188" y2="305" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1170" y1="320" x2="1188" y2="320" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1170" y1="335" x2="1188" y2="335" stroke="#2563EB" stroke-width="1.8"/>
+        <rect x="1050" y="290" width="120" height="60" rx="4" fill="#0f1e3d" stroke="#2563EB" stroke-width="1.5"/>
+        <path d="M 1050,290 A 6,6 0 0 0 1062,290" fill="none" stroke="#60A5FA" stroke-width="1.2"/>
+        <text x="1110" y="316" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono',monospace" font-size="11" letter-spacing="1.5">IC-R</text>
+        <text x="1110" y="332" text-anchor="middle" fill="#3B82F6" font-family="'JetBrains Mono',monospace" font-size="9">I/O</text>
+      </g>
+
+      <!-- IC-BL: rect(65,600,145,65), top at y=600, center (137,632) -->
+      <g class="pcb-ic pcb-ic-5" filter="url(#pcbGlow)">
+        <line x1="100" y1="582" x2="100" y2="600" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="120" y1="582" x2="120" y2="600" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="138" y1="582" x2="138" y2="600" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="158" y1="582" x2="158" y2="600" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="178" y1="582" x2="178" y2="600" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="100" y1="665" x2="100" y2="683" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="120" y1="665" x2="120" y2="683" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="138" y1="665" x2="138" y2="683" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="158" y1="665" x2="158" y2="683" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="178" y1="665" x2="178" y2="683" stroke="#2563EB" stroke-width="1.8"/>
+        <rect x="65" y="600" width="145" height="65" rx="4" fill="#0f1e3d" stroke="#2563EB" stroke-width="1.5"/>
+        <path d="M 65,600 A 7,7 0 0 0 79,600" fill="none" stroke="#60A5FA" stroke-width="1.2"/>
+        <text x="137" y="627" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono',monospace" font-size="11" letter-spacing="1.5">SPI-A</text>
+        <text x="137" y="643" text-anchor="middle" fill="#3B82F6" font-family="'JetBrains Mono',monospace" font-size="9">BUS</text>
+      </g>
+
+      <!-- IC-BR: rect(990,600,145,65), top at y=600, center (1062,632) -->
+      <g class="pcb-ic pcb-ic-6" filter="url(#pcbGlow)">
+        <line x1="1018" y1="582" x2="1018" y2="600" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1040" y1="582" x2="1040" y2="600" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1062" y1="582" x2="1062" y2="600" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1084" y1="582" x2="1084" y2="600" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1106" y1="582" x2="1106" y2="600" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1018" y1="665" x2="1018" y2="683" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1040" y1="665" x2="1040" y2="683" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1062" y1="665" x2="1062" y2="683" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1084" y1="665" x2="1084" y2="683" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="1106" y1="665" x2="1106" y2="683" stroke="#2563EB" stroke-width="1.8"/>
+        <rect x="990" y="600" width="145" height="65" rx="4" fill="#0f1e3d" stroke="#2563EB" stroke-width="1.5"/>
+        <path d="M 990,600 A 7,7 0 0 0 1004,600" fill="none" stroke="#60A5FA" stroke-width="1.2"/>
+        <text x="1062" y="627" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono',monospace" font-size="11" letter-spacing="1.5">SPI-B</text>
+        <text x="1062" y="643" text-anchor="middle" fill="#3B82F6" font-family="'JetBrains Mono',monospace" font-size="9">BUS</text>
+      </g>
+
+      <!-- IC-TC: rect(525,20,150,60), bottom at y=80, center (600,50) -->
+      <g class="pcb-ic pcb-ic-7" filter="url(#pcbGlow)">
+        <line x1="552" y1="2"  x2="552" y2="20"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="572" y1="2"  x2="572" y2="20"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="600" y1="2"  x2="600" y2="20"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="628" y1="2"  x2="628" y2="20"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="648" y1="2"  x2="648" y2="20"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="552" y1="80" x2="552" y2="98"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="572" y1="80" x2="572" y2="98"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="600" y1="80" x2="600" y2="98"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="628" y1="80" x2="628" y2="98"  stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="648" y1="80" x2="648" y2="98"  stroke="#2563EB" stroke-width="1.8"/>
+        <rect x="525" y="20" width="150" height="60" rx="4" fill="#0f1e3d" stroke="#2563EB" stroke-width="1.5"/>
+        <path d="M 525,20 A 7,7 0 0 0 539,20" fill="none" stroke="#60A5FA" stroke-width="1.2"/>
+        <text x="600" y="47" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono',monospace" font-size="11" letter-spacing="1.5">CLK-01</text>
+        <text x="600" y="63" text-anchor="middle" fill="#3B82F6" font-family="'JetBrains Mono',monospace" font-size="9">16MHz</text>
+      </g>
+
+      <!-- IC-BC: rect(525,620,150,60), top at y=620, center (600,650) -->
+      <g class="pcb-ic pcb-ic-8" filter="url(#pcbGlow)">
+        <line x1="552" y1="602" x2="552" y2="620" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="572" y1="602" x2="572" y2="620" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="600" y1="602" x2="600" y2="620" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="628" y1="602" x2="628" y2="620" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="648" y1="602" x2="648" y2="620" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="552" y1="680" x2="552" y2="698" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="572" y1="680" x2="572" y2="698" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="600" y1="680" x2="600" y2="698" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="628" y1="680" x2="628" y2="698" stroke="#2563EB" stroke-width="1.8"/>
+        <line x1="648" y1="680" x2="648" y2="698" stroke="#2563EB" stroke-width="1.8"/>
+        <rect x="525" y="620" width="150" height="60" rx="4" fill="#0f1e3d" stroke="#2563EB" stroke-width="1.5"/>
+        <path d="M 525,620 A 7,7 0 0 0 539,620" fill="none" stroke="#60A5FA" stroke-width="1.2"/>
+        <text x="600" y="647" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono',monospace" font-size="11" letter-spacing="1.5">CLK-02</text>
+        <text x="600" y="663" text-anchor="middle" fill="#3B82F6" font-family="'JetBrains Mono',monospace" font-size="9">16MHz</text>
+      </g>
+
+      <!-- ===== SMD RESISTORS ===== -->
+      <!-- R1: y=215, left side -->
+      <g class="pcb-res pcb-res-1">
+        <line x1="256" y1="215" x2="278" y2="215" stroke="#2563EB" stroke-width="1.5"/>
+        <rect x="278" y="208" width="30" height="14" rx="2" fill="#0a1628" stroke="#2563EB" stroke-width="1.3"/>
+        <line x1="281" y1="211" x2="305" y2="219" stroke="#2563EB" stroke-width="0.8" opacity="0.6"/>
+        <line x1="308" y1="215" x2="330" y2="215" stroke="#2563EB" stroke-width="1.5"/>
+      </g>
+      <!-- R2: y=215, right side -->
+      <g class="pcb-res pcb-res-2">
+        <line x1="870" y1="215" x2="892" y2="215" stroke="#2563EB" stroke-width="1.5"/>
+        <rect x="892" y="208" width="30" height="14" rx="2" fill="#0a1628" stroke="#2563EB" stroke-width="1.3"/>
+        <line x1="895" y1="211" x2="919" y2="219" stroke="#2563EB" stroke-width="0.8" opacity="0.6"/>
+        <line x1="922" y1="215" x2="944" y2="215" stroke="#2563EB" stroke-width="1.5"/>
+      </g>
+      <!-- R3: y=410, left side -->
+      <g class="pcb-res pcb-res-3">
+        <line x1="256" y1="410" x2="278" y2="410" stroke="#2563EB" stroke-width="1.5"/>
+        <rect x="278" y="403" width="30" height="14" rx="2" fill="#0a1628" stroke="#2563EB" stroke-width="1.3"/>
+        <line x1="281" y1="406" x2="305" y2="414" stroke="#2563EB" stroke-width="0.8" opacity="0.6"/>
+        <line x1="308" y1="410" x2="330" y2="410" stroke="#2563EB" stroke-width="1.5"/>
+      </g>
+      <!-- R4: y=410, right side -->
+      <g class="pcb-res pcb-res-4">
+        <line x1="870" y1="410" x2="892" y2="410" stroke="#2563EB" stroke-width="1.5"/>
+        <rect x="892" y="403" width="30" height="14" rx="2" fill="#0a1628" stroke="#2563EB" stroke-width="1.3"/>
+        <line x1="895" y1="406" x2="919" y2="414" stroke="#2563EB" stroke-width="0.8" opacity="0.6"/>
+        <line x1="922" y1="410" x2="944" y2="410" stroke="#2563EB" stroke-width="1.5"/>
+      </g>
+      <!-- R5: y=148, center-left area -->
+      <g class="pcb-res pcb-res-5">
+        <line x1="540" y1="148" x2="562" y2="148" stroke="#2563EB" stroke-width="1.5"/>
+        <rect x="562" y="141" width="30" height="14" rx="2" fill="#0a1628" stroke="#2563EB" stroke-width="1.3"/>
+        <line x1="565" y1="144" x2="589" y2="152" stroke="#2563EB" stroke-width="0.8" opacity="0.6"/>
+        <line x1="592" y1="148" x2="614" y2="148" stroke="#2563EB" stroke-width="1.5"/>
+      </g>
+
+      <!-- ===== SMD CAPACITORS ===== -->
+      <!-- C1: y=240, x≈430 -->
+      <g class="pcb-cap pcb-cap-1">
+        <line x1="410" y1="240" x2="430" y2="240" stroke="#2563EB" stroke-width="1.5"/>
+        <line x1="430" y1="231" x2="430" y2="249" stroke="#60A5FA" stroke-width="3.5"/>
+        <line x1="440" y1="231" x2="440" y2="249" stroke="#60A5FA" stroke-width="3.5"/>
+        <line x1="440" y1="240" x2="460" y2="240" stroke="#2563EB" stroke-width="1.5"/>
+      </g>
+      <!-- C2: y=240, x≈770 -->
+      <g class="pcb-cap pcb-cap-2">
+        <line x1="750" y1="240" x2="770" y2="240" stroke="#2563EB" stroke-width="1.5"/>
+        <line x1="770" y1="231" x2="770" y2="249" stroke="#60A5FA" stroke-width="3.5"/>
+        <line x1="780" y1="231" x2="780" y2="249" stroke="#60A5FA" stroke-width="3.5"/>
+        <line x1="780" y1="240" x2="800" y2="240" stroke="#2563EB" stroke-width="1.5"/>
+      </g>
+      <!-- C3: y=470, x≈430 -->
+      <g class="pcb-cap pcb-cap-3">
+        <line x1="410" y1="470" x2="430" y2="470" stroke="#2563EB" stroke-width="1.5"/>
+        <line x1="430" y1="461" x2="430" y2="479" stroke="#60A5FA" stroke-width="3.5"/>
+        <line x1="440" y1="461" x2="440" y2="479" stroke="#60A5FA" stroke-width="3.5"/>
+        <line x1="440" y1="470" x2="460" y2="470" stroke="#2563EB" stroke-width="1.5"/>
+      </g>
+      <!-- C4: y=470, x≈770 -->
+      <g class="pcb-cap pcb-cap-4">
+        <line x1="750" y1="470" x2="770" y2="470" stroke="#2563EB" stroke-width="1.5"/>
+        <line x1="770" y1="461" x2="770" y2="479" stroke="#60A5FA" stroke-width="3.5"/>
+        <line x1="780" y1="461" x2="780" y2="479" stroke="#60A5FA" stroke-width="3.5"/>
+        <line x1="780" y1="470" x2="800" y2="470" stroke="#2563EB" stroke-width="1.5"/>
+      </g>
+
+      <!-- ===== CRYSTAL OSCILLATORS ===== -->
+      <!-- XTAL1: y=350, x≈248 -->
+      <g class="pcb-xtal pcb-xtal-1">
+        <line x1="204" y1="350" x2="222" y2="350" stroke="#2563EB" stroke-width="1.5"/>
+        <rect x="222" y="338" width="44" height="24" rx="12" fill="#0a1628" stroke="#3B82F6" stroke-width="1.4"/>
+        <line x1="244" y1="338" x2="244" y2="362" stroke="rgba(37,99,235,0.4)" stroke-width="1"/>
+        <line x1="266" y1="350" x2="284" y2="350" stroke="#2563EB" stroke-width="1.5"/>
+      </g>
+      <!-- XTAL2: y=350, x≈952 -->
+      <g class="pcb-xtal pcb-xtal-2">
+        <line x1="918" y1="350" x2="936" y2="350" stroke="#2563EB" stroke-width="1.5"/>
+        <rect x="936" y="338" width="44" height="24" rx="12" fill="#0a1628" stroke="#3B82F6" stroke-width="1.4"/>
+        <line x1="958" y1="338" x2="958" y2="362" stroke="rgba(37,99,235,0.4)" stroke-width="1"/>
+        <line x1="980" y1="350" x2="998" y2="350" stroke="#2563EB" stroke-width="1.5"/>
+      </g>
+
+    </svg>
+  </div>
+
   <!-- Background -->
   <canvas id="bgParticles" aria-hidden="true"></canvas>
   <div class="bg-orbs" aria-hidden="true">
