@@ -626,6 +626,42 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 2px 8px rgba(37, 99, 235, .25);
 }
 
+/* ---- Hero entrance animation ---- */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero__badge {
+  animation: heroFadeUp .7s cubic-bezier(.4,0,.2,1) both;
+  animation-delay: 0s;
+}
+
+.hero__name {
+  animation: heroFadeUp .7s cubic-bezier(.4,0,.2,1) both;
+  animation-delay: .1s;
+}
+
+.hero__title {
+  animation: heroFadeUp .7s cubic-bezier(.4,0,.2,1) both;
+  animation-delay: .25s;
+}
+
+.hero__actions {
+  animation: heroFadeUp .7s cubic-bezier(.4,0,.2,1) both;
+  animation-delay: .4s;
+}
+
+.hero__chips-wrap {
+  animation: heroFadeUp .7s cubic-bezier(.4,0,.2,1) both;
+  animation-delay: .5s;
+}
+
 /* Hero image */
 .hero__image {
   display: flex;
@@ -633,6 +669,8 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   order: -1;
   min-width: 0;
+  animation: heroFadeIn .9s cubic-bezier(.4,0,.2,1) both;
+  animation-delay: .2s;
 }
 
 .hero__image img {
