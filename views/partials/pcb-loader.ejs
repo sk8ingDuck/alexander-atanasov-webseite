@@ -72,16 +72,14 @@
       <polyline class="pcb-trace" data-delay="0.36"
         points="380,304 152,304 152,446"/>
 
-      <!-- T_R4: IC R-pin4 → FU1 left via -->
+      <!-- T_R4: IC R-pin4 → off-screen right -->
       <polyline class="pcb-trace" data-delay="0.36"
-        points="580,304 704,304 704,440 695,440"/>
+        points="580,304 960,304"/>
 
-      <!-- FU1 left lead (via → body edge) -->
-      <line class="pcb-trace" data-delay="0.40" x1="695" y1="440" x2="720" y2="440"/>
 
-      <!-- T_B2: IC B-pin2 → FU1 left via -->
+      <!-- T_B2: IC B-pin2 → off-screen bottom -->
       <polyline class="pcb-trace" data-delay="0.38"
-        points="516,360 625,360 625,440 695,440"/>
+        points="516,360 625,360 625,560"/>
 
       <!-- R2 component leads -->
       <line class="pcb-trace" data-delay="0.38" x1="328" y1="445" x2="300" y2="445"/>
@@ -105,8 +103,6 @@
       <polyline class="pcb-trace" data-delay="0.48"
         points="750,190 888,190 888,264"/>
 
-      <!-- FU1 right lead (body edge → via) -->
-      <line class="pcb-trace" data-delay="0.50" x1="804" y1="440" x2="830" y2="440"/>
 
       <!-- IC2 R-pin2 extends right -->
       <polyline class="pcb-trace" data-delay="0.52"
@@ -116,9 +112,9 @@
       <polyline class="pcb-trace" data-delay="0.53"
         points="888,264 944,264 944,130"/>
 
-      <!-- T_FU1_IC2R3: FU1 right → IC2 R-pin3 -->
+      <!-- IC2 R-pin3 → off-screen right -->
       <polyline class="pcb-trace" data-delay="0.58"
-        points="830,440 888,440 888,296"/>
+        points="888,296 960,296"/>
 
       <!-- T_Q1_R2: Q1 E lead → R2 left via (bottom bus) -->
       <polyline class="pcb-trace" data-delay="0.64"
@@ -269,8 +265,8 @@
       <polyline class="pcb-trace" data-delay="0.38" points="670,426 670,360 648,360 625,360"/>
       <!-- Q2-C → D2 left via -->
       <polyline class="pcb-trace" data-delay="0.40" points="658,426 658,471 686,471"/>
-      <!-- Q2-E → T_R4 node at (704,440) -->
-      <polyline class="pcb-trace" data-delay="0.40" points="682,426 704,426 704,440"/>
+      <!-- Q2-E → off-screen bottom -->
+      <polyline class="pcb-trace" data-delay="0.40" points="682,426 704,426 704,560"/>
 
       <!-- Q3 transistor: leads + routing -->
       <line class="pcb-trace" data-delay="0.32" x1="746" y1="366" x2="746" y2="392"/>
@@ -278,10 +274,10 @@
       <line class="pcb-trace" data-delay="0.32" x1="770" y1="366" x2="770" y2="392"/>
       <!-- Q3-B → T_R3 node at (782,284) via (782,360) -->
       <polyline class="pcb-trace" data-delay="0.34" points="758,392 758,360 782,360 782,284"/>
-      <!-- Q3-C → T_R4 at (704,440) via left -->
-      <polyline class="pcb-trace" data-delay="0.34" points="746,392 736,392 704,392 704,440"/>
-      <!-- Q3-E → FU1 right-lead area -->
-      <polyline class="pcb-trace" data-delay="0.36" points="770,392 782,392 782,440 804,440"/>
+      <!-- Q3-C → off-screen bottom -->
+      <polyline class="pcb-trace" data-delay="0.34" points="746,392 736,392 704,392 704,560"/>
+      <!-- Q3-E → off-screen bottom -->
+      <polyline class="pcb-trace" data-delay="0.36" points="770,392 782,392 782,560"/>
 
       <!-- L1 bottom inductor: leads + route to existing nodes -->
       <line class="pcb-trace" data-delay="0.44" x1="446" y1="477" x2="422" y2="477"/>
@@ -309,10 +305,10 @@
       <polyline class="pcb-trace" data-delay="0.44" points="636,460 636,360 625,360"/>
       <line class="pcb-trace" data-delay="0.46" x1="636" y1="518" x2="636" y2="560"/>
 
-      <!-- D2 bottom-right: leads + R-via into FU1-right area -->
+      <!-- D2 bottom-right: leads + R-via off-screen right -->
       <line class="pcb-trace" data-delay="0.42" x1="712" y1="471" x2="686" y2="471"/>
       <line class="pcb-trace" data-delay="0.42" x1="740" y1="471" x2="764" y2="471"/>
-      <polyline class="pcb-trace" data-delay="0.44" points="764,471 782,471 782,440 804,440"/>
+      <polyline class="pcb-trace" data-delay="0.44" points="764,471 960,471"/>
 
       <!-- D3 far bottom-right: leads + L-via into (888,440) node -->
       <line class="pcb-trace" data-delay="0.44" x1="838" y1="471" x2="814" y2="471"/>
@@ -354,6 +350,10 @@
       <text class="pcb-reveal" data-delay="0.08" data-opacity="0.45" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="end" x="550" y="288">6</text>
       <text class="pcb-reveal" data-delay="0.08" data-opacity="0.45" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="end" x="550" y="308">5</text>
 
+      <!-- FU1 connections: U1 top pins → FU1 caps -->
+      <line class="pcb-trace" data-delay="0.13" x1="444" y1="200" x2="444" y2="137"/>
+      <line class="pcb-trace" data-delay="0.13" x1="516" y1="200" x2="516" y2="137"/>
+
       <!-- R1: Resistor top-left (10K) -->
       <rect class="pcb-component pcb-reveal" data-delay="0.24" x="184" y="130" width="52" height="10" rx="2"/>
       <!-- R1 color bands: brown/black/orange/gold -->
@@ -384,14 +384,14 @@
       <text class="pcb-reveal" data-delay="0.42" data-opacity="0.65" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="middle" x="165" y="460">B</text>
       <text class="pcb-reveal" data-delay="0.42" data-opacity="0.65" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="middle" x="178" y="460">E</text>
 
-      <!-- FU1: Fuse bottom-right -->
-      <ellipse class="pcb-component pcb-reveal" data-delay="0.40" cx="762" cy="440" rx="42" ry="9"/>
+      <!-- FU1: Fuse above U1 -->
+      <ellipse class="pcb-component pcb-reveal" data-delay="0.40" cx="480" cy="128" rx="42" ry="9"/>
       <!-- FU1 metal end caps -->
-      <rect class="pcb-reveal" data-delay="0.41" data-opacity="0.9" x="718" y="431" width="8" height="18" rx="1" fill="#0c1d36" stroke="#60a5fa" stroke-width="0.8"/>
-      <rect class="pcb-reveal" data-delay="0.41" data-opacity="0.9" x="798" y="431" width="8" height="18" rx="1" fill="#0c1d36" stroke="#60a5fa" stroke-width="0.8"/>
+      <rect class="pcb-reveal" data-delay="0.41" data-opacity="0.9" x="436" y="119" width="8" height="18" rx="1" fill="#0c1d36" stroke="#60a5fa" stroke-width="0.8"/>
+      <rect class="pcb-reveal" data-delay="0.41" data-opacity="0.9" x="516" y="119" width="8" height="18" rx="1" fill="#0c1d36" stroke="#60a5fa" stroke-width="0.8"/>
       <polyline class="pcb-fuse-wire pcb-reveal" data-delay="0.44"
-        points="724,440 731,435 738,445 745,435 752,445 759,435 766,445 773,435 780,445 787,435 800,440"/>
-      <text class="pcb-reveal" data-delay="0.45" data-opacity="0.65" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="middle" x="762" y="458">2A / 250V</text>
+        points="442,128 449,123 456,133 463,123 470,133 477,123 484,133 491,123 498,133 505,123 518,128"/>
+      <text class="pcb-reveal" data-delay="0.45" data-opacity="0.9" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#eff6ff" text-anchor="middle" x="480" y="133">AA</text>
 
       <!-- U2: Small IC right side -->
       <rect class="pcb-ic pcb-reveal" data-delay="0.31" x="800" y="246" width="70" height="60" rx="3"/>
@@ -597,6 +597,8 @@
       <circle class="pcb-via pcb-reveal" data-delay="0.15" cx="580" cy="304" r="2.2"/>
       <circle class="pcb-via pcb-reveal" data-delay="0.15" cx="444" cy="200" r="2.2"/>
       <circle class="pcb-via pcb-reveal" data-delay="0.15" cx="516" cy="200" r="2.2"/>
+      <circle class="pcb-via--lg pcb-reveal" data-delay="0.14" cx="444" cy="137" r="2.8"/>
+      <circle class="pcb-via--lg pcb-reveal" data-delay="0.14" cx="516" cy="137" r="2.8"/>
       <circle class="pcb-via pcb-reveal" data-delay="0.15" cx="444" cy="360" r="2.2"/>
       <circle class="pcb-via pcb-reveal" data-delay="0.15" cx="516" cy="360" r="2.2"/>
 
@@ -628,16 +630,12 @@
       <circle class="pcb-via pcb-reveal" data-delay="0.30" cx="782" cy="264" r="1.8"/>
       <circle class="pcb-via pcb-reveal" data-delay="0.34" cx="782" cy="284" r="1.8"/>
 
-      <!-- T_R4, T_B2 corners and FU1 left via -->
-      <circle class="pcb-via pcb-reveal" data-delay="0.38" cx="704" cy="304" r="1.8"/>
-      <circle class="pcb-via pcb-reveal" data-delay="0.40" cx="704" cy="440" r="1.8"/>
-      <circle class="pcb-via--lg pcb-reveal" data-delay="0.42" cx="695" cy="440" r="2.8"/>
+      <!-- T_R4 off-screen, old vias removed -->
 
       <!-- T_B1, T_B2 corners and R2 left via -->
       <circle class="pcb-via pcb-reveal" data-delay="0.36" cx="300" cy="360" r="1.8"/>
       <circle class="pcb-via--lg pcb-reveal" data-delay="0.38" cx="300" cy="445" r="2.8"/>
       <circle class="pcb-via pcb-reveal" data-delay="0.40" cx="625" cy="360" r="1.8"/>
-      <circle class="pcb-via pcb-reveal" data-delay="0.42" cx="625" cy="440" r="1.8"/>
 
       <!-- IC2 U2 right pin vias -->
       <circle class="pcb-via pcb-reveal" data-delay="0.50" cx="888" cy="264" r="1.8"/>
@@ -647,10 +645,7 @@
       <!-- C1 → IC2 route corner -->
       <circle class="pcb-via pcb-reveal" data-delay="0.50" cx="888" cy="190" r="1.8"/>
 
-      <!-- FU1 right lead via -->
-      <circle class="pcb-via--lg pcb-reveal" data-delay="0.52" cx="830" cy="440" r="2.8"/>
-      <!-- FU1 → IC2 R3 route corner -->
-      <circle class="pcb-via pcb-reveal" data-delay="0.60" cx="888" cy="440" r="1.8"/>
+      
 
       <!-- R2 right via -->
       <circle class="pcb-via--lg pcb-reveal" data-delay="0.44" cx="420" cy="445" r="2.8"/>
@@ -684,7 +679,7 @@
       <!-- C1 polarity marker -->
       <text class="pcb-reveal" data-delay="0.27" data-opacity="0.75" font-family="JetBrains Mono,monospace" font-size="9" fill="#60a5fa" text-anchor="middle" x="726" y="147">+</text>
       <text class="pcb-label-ref pcb-reveal" data-delay="0.38" x="166" y="371">Q1</text>
-      <text class="pcb-label-ref pcb-reveal" data-delay="0.42" x="762" y="421">FU1</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.42" x="480" y="113">FU1</text>
       <text class="pcb-label-ref pcb-reveal" data-delay="0.33" x="835" y="239">U2</text>
 
       <!-- ===== NEW COMPONENT VIAS ===== -->
