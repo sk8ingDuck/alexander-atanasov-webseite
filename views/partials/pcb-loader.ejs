@@ -1,14 +1,14 @@
   <!-- PCB Loader -->
   <div id="pcb-loader" aria-hidden="true" role="presentation">
-    <svg viewBox="0 0 960 560" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <svg viewBox="-80 -70 1120 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
       <defs>
         <pattern id="pcbdots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
           <circle cx="12" cy="12" r="0.7" fill="#1e3a6e" opacity="0.45"/>
         </pattern>
       </defs>
 
-      <!-- Dot grid background -->
-      <rect width="960" height="560" fill="url(#pcbdots)"/>
+      <!-- Dot grid background (oversized to fill any viewport) -->
+      <rect x="-960" y="-560" width="2880" height="1680" fill="url(#pcbdots)"/>
 
       <!-- ===== TRACES (animated via stroke-dashoffset) ===== -->
 
