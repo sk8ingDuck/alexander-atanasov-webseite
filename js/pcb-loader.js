@@ -4,6 +4,7 @@
   if (!loader) return;
 
   var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DEBUG_PCB_LOADING = false; // set true to keep loader visible after animation (page never loads)
   var ANIM_TOTAL = 3000; // total animation duration in ms — edit this to control speed
   var _S = ANIM_TOTAL / 2300; // scale factor relative to original baseline
   var POST_ANIM_HOLD = 0;
@@ -45,6 +46,7 @@
   }
 
   function finishIfReady() {
+    if (DEBUG_PCB_LOADING) return;
     if (finishing || !done) return;
     if (!pageReady && !allowForceFinish) return;
     finishing = true;
