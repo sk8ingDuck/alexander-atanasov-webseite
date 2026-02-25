@@ -157,6 +157,181 @@
       <line class="pcb-trace" data-delay="0.96" x1="76" y1="390" x2="0" y2="390"/>
       <line class="pcb-trace" data-delay="0.98" x1="420" y1="480" x2="420" y2="560"/>
 
+      <!-- ===== NEW COMPONENT TRACES ===== -->
+
+      <!-- U3 top-left IC: 8 pin stubs -->
+      <line class="pcb-trace" data-delay="0.08" x1="20" y1="36" x2="0" y2="36"/>
+      <line class="pcb-trace" data-delay="0.08" x1="20" y1="48" x2="0" y2="48"/>
+      <line class="pcb-trace" data-delay="0.08" x1="20" y1="60" x2="0" y2="60"/>
+      <line class="pcb-trace" data-delay="0.08" x1="20" y1="72" x2="0" y2="72"/>
+      <line class="pcb-trace" data-delay="0.08" x1="82" y1="36" x2="94" y2="36"/>
+      <line class="pcb-trace" data-delay="0.08" x1="82" y1="48" x2="94" y2="48"/>
+      <line class="pcb-trace" data-delay="0.08" x1="82" y1="60" x2="94" y2="60"/>
+      <line class="pcb-trace" data-delay="0.08" x1="82" y1="72" x2="94" y2="72"/>
+      <!-- U3 R-pin1: drop to top bus -->
+      <line class="pcb-trace" data-delay="0.10" x1="94" y1="36" x2="94" y2="59"/>
+      <!-- U3 R-pin2: route to C2 bottom via -->
+      <polyline class="pcb-trace" data-delay="0.10" points="94,48 94,88 226,88"/>
+      <!-- U3 R-pin4: long route down to R6 right via -->
+      <polyline class="pcb-trace" data-delay="0.12" points="94,72 94,209 96,209"/>
+
+      <!-- Top bus: R3 leads + R3→R4 horizontal + R4 leads -->
+      <line class="pcb-trace" data-delay="0.16" x1="118" y1="59" x2="94" y2="59"/>
+      <line class="pcb-trace" data-delay="0.16" x1="170" y1="59" x2="194" y2="59"/>
+      <line class="pcb-trace" data-delay="0.18" x1="194" y1="59" x2="312" y2="59"/>
+      <line class="pcb-trace" data-delay="0.18" x1="336" y1="59" x2="312" y2="59"/>
+      <line class="pcb-trace" data-delay="0.18" x1="388" y1="59" x2="412" y2="59"/>
+      <!-- R4 right → Y1 left (via corner) -->
+      <line class="pcb-trace" data-delay="0.20" x1="412" y1="59" x2="412" y2="41"/>
+      <!-- Y1 crystal leads -->
+      <line class="pcb-trace" data-delay="0.20" x1="412" y1="41" x2="438" y2="41"/>
+      <line class="pcb-trace" data-delay="0.20" x1="474" y1="41" x2="498" y2="41"/>
+      <!-- Y1 right → R5 left (horizontal then drop) -->
+      <polyline class="pcb-trace" data-delay="0.20" points="498,41 524,41 524,59"/>
+      <!-- R5 leads + R5 right → x=645 vertical bus -->
+      <line class="pcb-trace" data-delay="0.22" x1="548" y1="59" x2="524" y2="59"/>
+      <line class="pcb-trace" data-delay="0.22" x1="600" y1="59" x2="624" y2="59"/>
+      <polyline class="pcb-trace" data-delay="0.24" points="624,59 645,59 645,130"/>
+
+      <!-- C2 top-area cap: top lead (from off-screen) + plates + bottom lead -->
+      <line class="pcb-trace" data-delay="0.14" x1="226" y1="0" x2="226" y2="50"/>
+      <line class="pcb-trace" data-delay="0.14" x1="204" y1="50" x2="248" y2="50"/>
+      <line class="pcb-trace" data-delay="0.14" x1="204" y1="64" x2="248" y2="64"/>
+      <line class="pcb-trace" data-delay="0.14" x1="226" y1="64" x2="226" y2="88"/>
+
+      <!-- U5 top-right IC: L-pin stubs + R-pin stubs (→ off-screen) -->
+      <line class="pcb-trace" data-delay="0.09" x1="826" y1="38" x2="814" y2="38"/>
+      <line class="pcb-trace" data-delay="0.09" x1="826" y1="52" x2="814" y2="52"/>
+      <line class="pcb-trace" data-delay="0.09" x1="826" y1="66" x2="814" y2="66"/>
+      <line class="pcb-trace" data-delay="0.09" x1="826" y1="80" x2="814" y2="80"/>
+      <line class="pcb-trace" data-delay="0.09" x1="914" y1="38" x2="960" y2="38"/>
+      <line class="pcb-trace" data-delay="0.09" x1="914" y1="52" x2="960" y2="52"/>
+      <line class="pcb-trace" data-delay="0.09" x1="914" y1="66" x2="960" y2="66"/>
+      <line class="pcb-trace" data-delay="0.09" x1="914" y1="80" x2="960" y2="80"/>
+      <!-- U5 L-pins: L1/L2/L4 → off-screen top; L3 → Z1 left via -->
+      <polyline class="pcb-trace" data-delay="0.11" points="814,38 762,38 762,0"/>
+      <polyline class="pcb-trace" data-delay="0.11" points="814,52 762,52 762,0"/>
+      <polyline class="pcb-trace" data-delay="0.13" points="814,66 848,66 848,155"/>
+      <polyline class="pcb-trace" data-delay="0.11" points="814,80 762,80 762,0"/>
+
+      <!-- Z1 right strip: leads + route into x=944 vertical bus -->
+      <line class="pcb-trace" data-delay="0.16" x1="872" y1="155" x2="848" y2="155"/>
+      <line class="pcb-trace" data-delay="0.16" x1="900" y1="155" x2="930" y2="155"/>
+      <polyline class="pcb-trace" data-delay="0.18" points="930,155 944,155 944,130"/>
+      <!-- R9 right strip: leads + L-via tees into Z1 left -->
+      <line class="pcb-trace" data-delay="0.18" x1="860" y1="207" x2="836" y2="207"/>
+      <line class="pcb-trace" data-delay="0.20" x1="912" y1="207" x2="960" y2="207"/>
+      <polyline class="pcb-trace" data-delay="0.20" points="836,207 836,155 872,155"/>
+
+      <!-- C4 right strip: leads + plates + route to IC2 net at (888,296) -->
+      <line class="pcb-trace" data-delay="0.38" x1="904" y1="358" x2="904" y2="380"/>
+      <line class="pcb-trace" data-delay="0.38" x1="882" y1="380" x2="926" y2="380"/>
+      <line class="pcb-trace" data-delay="0.38" x1="882" y1="394" x2="926" y2="394"/>
+      <line class="pcb-trace" data-delay="0.38" x1="904" y1="394" x2="904" y2="416"/>
+      <polyline class="pcb-trace" data-delay="0.40" points="904,358 888,358 888,296"/>
+      <line class="pcb-trace" data-delay="0.42" x1="904" y1="416" x2="960" y2="416"/>
+
+      <!-- R6 left strip: leads + R-via → x=152 vertical bus -->
+      <line class="pcb-trace" data-delay="0.18" x1="20" y1="209" x2="0" y2="209"/>
+      <line class="pcb-trace" data-delay="0.18" x1="72" y1="209" x2="96" y2="209"/>
+      <polyline class="pcb-trace" data-delay="0.20" points="96,209 152,209 152,304"/>
+
+      <!-- C3 left strip: plates + leads -->
+      <line class="pcb-trace" data-delay="0.22" x1="44" y1="258" x2="0" y2="258"/>
+      <line class="pcb-trace" data-delay="0.22" x1="44" y1="258" x2="44" y2="280"/>
+      <line class="pcb-trace" data-delay="0.22" x1="22" y1="280" x2="66" y2="280"/>
+      <line class="pcb-trace" data-delay="0.22" x1="22" y1="294" x2="66" y2="294"/>
+      <line class="pcb-trace" data-delay="0.22" x1="44" y1="294" x2="44" y2="316"/>
+      <!-- C3 bottom → L2 right via -->
+      <polyline class="pcb-trace" data-delay="0.26" points="44,316 44,345 66,345"/>
+
+      <!-- L2 inductor: leads + R-via tees into x=76 bus -->
+      <line class="pcb-trace" data-delay="0.28" x1="22" y1="345" x2="0" y2="345"/>
+      <line class="pcb-trace" data-delay="0.28" x1="66" y1="345" x2="90" y2="345"/>
+      <line class="pcb-trace" data-delay="0.30" x1="90" y1="345" x2="76" y2="345"/>
+
+      <!-- Z2 bottom-left: leads + Z2-R → D1 left via (common bus) -->
+      <line class="pcb-trace" data-delay="0.40" x1="22" y1="469" x2="0" y2="469"/>
+      <line class="pcb-trace" data-delay="0.40" x1="50" y1="469" x2="112" y2="469"/>
+      <!-- D1: leads + D1-R → y=480 bus -->
+      <line class="pcb-trace" data-delay="0.42" x1="128" y1="471" x2="112" y2="471"/>
+      <line class="pcb-trace" data-delay="0.42" x1="156" y1="471" x2="180" y2="471"/>
+      <polyline class="pcb-trace" data-delay="0.44" points="180,471 180,480 152,480"/>
+
+      <!-- U4 bottom IC: 6 pin stubs -->
+      <line class="pcb-trace" data-delay="0.28" x1="228" y1="376" x2="216" y2="376"/>
+      <line class="pcb-trace" data-delay="0.28" x1="228" y1="392" x2="216" y2="392"/>
+      <line class="pcb-trace" data-delay="0.28" x1="228" y1="408" x2="216" y2="408"/>
+      <line class="pcb-trace" data-delay="0.28" x1="298" y1="376" x2="310" y2="376"/>
+      <line class="pcb-trace" data-delay="0.28" x1="298" y1="392" x2="310" y2="392"/>
+      <line class="pcb-trace" data-delay="0.28" x1="298" y1="408" x2="310" y2="408"/>
+      <!-- U4 routing: L1→y=304 trace; L2→y=480 bus; L3→off-screen -->
+      <polyline class="pcb-trace" data-delay="0.30" points="216,376 216,304 380,304"/>
+      <polyline class="pcb-trace" data-delay="0.32" points="216,392 200,392 200,480 300,480"/>
+      <line class="pcb-trace" data-delay="0.34" x1="216" y1="408" x2="216" y2="560"/>
+      <!-- U4 routing: R1→T_B1 node; R2→R2-left-via; R3→off-screen -->
+      <polyline class="pcb-trace" data-delay="0.30" points="310,376 310,360 300,360"/>
+      <polyline class="pcb-trace" data-delay="0.32" points="310,392 310,445 300,445"/>
+      <line class="pcb-trace" data-delay="0.34" x1="310" y1="408" x2="310" y2="560"/>
+
+      <!-- Q2 transistor: leads + routing -->
+      <line class="pcb-trace" data-delay="0.36" x1="658" y1="400" x2="658" y2="426"/>
+      <line class="pcb-trace" data-delay="0.36" x1="670" y1="400" x2="670" y2="426"/>
+      <line class="pcb-trace" data-delay="0.36" x1="682" y1="400" x2="682" y2="426"/>
+      <!-- Q2-B → T_B2 node at (625,360) -->
+      <polyline class="pcb-trace" data-delay="0.38" points="670,426 670,360 648,360 625,360"/>
+      <!-- Q2-C → D2 left via -->
+      <polyline class="pcb-trace" data-delay="0.40" points="658,426 658,471 686,471"/>
+      <!-- Q2-E → T_R4 node at (704,440) -->
+      <polyline class="pcb-trace" data-delay="0.40" points="682,426 704,426 704,440"/>
+
+      <!-- Q3 transistor: leads + routing -->
+      <line class="pcb-trace" data-delay="0.32" x1="746" y1="366" x2="746" y2="392"/>
+      <line class="pcb-trace" data-delay="0.32" x1="758" y1="366" x2="758" y2="392"/>
+      <line class="pcb-trace" data-delay="0.32" x1="770" y1="366" x2="770" y2="392"/>
+      <!-- Q3-B → T_R3 node at (782,284) via (782,360) -->
+      <polyline class="pcb-trace" data-delay="0.34" points="758,392 758,360 782,360 782,284"/>
+      <!-- Q3-C → T_R4 at (704,440) via left -->
+      <polyline class="pcb-trace" data-delay="0.34" points="746,392 736,392 704,392 704,440"/>
+      <!-- Q3-E → FU1 right-lead area -->
+      <polyline class="pcb-trace" data-delay="0.36" points="770,392 782,392 782,440 804,440"/>
+
+      <!-- L1 bottom inductor: leads + route to existing nodes -->
+      <line class="pcb-trace" data-delay="0.44" x1="446" y1="477" x2="422" y2="477"/>
+      <line class="pcb-trace" data-delay="0.44" x1="492" y1="477" x2="516" y2="477"/>
+      <polyline class="pcb-trace" data-delay="0.46" points="422,477 420,477 420,480"/>
+      <line class="pcb-trace" data-delay="0.46" x1="516" y1="477" x2="516" y2="360"/>
+
+      <!-- R7 bottom: leads + route to y=480 bus -->
+      <line class="pcb-trace" data-delay="0.46" x1="308" y1="497" x2="284" y2="497"/>
+      <line class="pcb-trace" data-delay="0.46" x1="360" y1="497" x2="384" y2="497"/>
+      <polyline class="pcb-trace" data-delay="0.48" points="284,497 284,480 300,480"/>
+      <polyline class="pcb-trace" data-delay="0.48" points="384,497 420,497 420,480"/>
+
+      <!-- R8 bottom: leads + L-via into L1-R, R-via → off-screen -->
+      <line class="pcb-trace" data-delay="0.48" x1="514" y1="497" x2="490" y2="497"/>
+      <line class="pcb-trace" data-delay="0.48" x1="566" y1="497" x2="590" y2="497"/>
+      <polyline class="pcb-trace" data-delay="0.50" points="490,497 490,477 516,477"/>
+      <line class="pcb-trace" data-delay="0.50" x1="590" y1="497" x2="590" y2="560"/>
+
+      <!-- C5 bottom: plates + leads + top → T_B2 node (625,360) -->
+      <line class="pcb-trace" data-delay="0.42" x1="636" y1="460" x2="636" y2="482"/>
+      <line class="pcb-trace" data-delay="0.42" x1="614" y1="482" x2="658" y2="482"/>
+      <line class="pcb-trace" data-delay="0.42" x1="614" y1="496" x2="658" y2="496"/>
+      <line class="pcb-trace" data-delay="0.42" x1="636" y1="496" x2="636" y2="518"/>
+      <polyline class="pcb-trace" data-delay="0.44" points="636,460 636,360 625,360"/>
+      <line class="pcb-trace" data-delay="0.46" x1="636" y1="518" x2="636" y2="560"/>
+
+      <!-- D2 bottom-right: leads + R-via into FU1-right area -->
+      <line class="pcb-trace" data-delay="0.42" x1="712" y1="471" x2="686" y2="471"/>
+      <line class="pcb-trace" data-delay="0.42" x1="740" y1="471" x2="764" y2="471"/>
+      <polyline class="pcb-trace" data-delay="0.44" points="764,471 782,471 782,440 804,440"/>
+
+      <!-- D3 far bottom-right: leads + L-via into (888,440) node -->
+      <line class="pcb-trace" data-delay="0.44" x1="838" y1="471" x2="814" y2="471"/>
+      <polyline class="pcb-trace" data-delay="0.46" points="814,471 814,440 888,440"/>
+      <line class="pcb-trace" data-delay="0.46" x1="866" y1="471" x2="960" y2="471"/>
+
       <!-- ===== COMPONENT BODIES (fade in early) ===== -->
 
       <!-- U1: Central IC -->
@@ -251,6 +426,176 @@
       <text class="pcb-reveal" data-delay="0.33" data-opacity="0.45" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="end" x="861" y="268">3</text>
       <text class="pcb-reveal" data-delay="0.33" data-opacity="0.45" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="end" x="861" y="284">4</text>
       <text class="pcb-reveal" data-delay="0.33" data-opacity="0.45" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="end" x="861" y="300">5</text>
+
+      <!-- ===== NEW COMPONENT BODIES ===== -->
+
+      <!-- U3: Top-left IC (8-pin DIP) -->
+      <rect class="pcb-ic pcb-reveal" data-delay="0.08" x="20" y="20" width="62" height="52" rx="3"/>
+      <path class="pcb-reveal" data-delay="0.08" d="M43,20 a6,6 0 0,0 12,0" fill="#070e1b" stroke="#3b82f6" stroke-width="1"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.08" cx="26" cy="27" r="2"/>
+      <line class="pcb-reveal" data-delay="0.09" data-opacity="0.25" x1="23" y1="46" x2="79" y2="46" stroke="#60a5fa" stroke-width="0.6" stroke-dasharray="3,2"/>
+      <line class="pcb-reveal" data-delay="0.09" data-opacity="0.55" x1="20" y1="36" x2="26" y2="36" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.09" data-opacity="0.55" x1="20" y1="48" x2="26" y2="48" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.09" data-opacity="0.55" x1="20" y1="60" x2="26" y2="60" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.09" data-opacity="0.55" x1="20" y1="72" x2="26" y2="72" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.09" data-opacity="0.55" x1="82" y1="36" x2="76" y2="36" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.09" data-opacity="0.55" x1="82" y1="48" x2="76" y2="48" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.09" data-opacity="0.55" x1="82" y1="60" x2="76" y2="60" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.09" data-opacity="0.55" x1="82" y1="72" x2="76" y2="72" stroke="#3b82f6" stroke-width="1.2"/>
+      <text class="pcb-reveal" data-delay="0.10" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" x="28" y="39">1</text>
+      <text class="pcb-reveal" data-delay="0.10" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" x="28" y="51">2</text>
+      <text class="pcb-reveal" data-delay="0.10" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" x="28" y="63">3</text>
+      <text class="pcb-reveal" data-delay="0.10" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" x="28" y="75">4</text>
+      <text class="pcb-reveal" data-delay="0.10" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="end" x="74" y="39">8</text>
+      <text class="pcb-reveal" data-delay="0.10" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="end" x="74" y="51">7</text>
+      <text class="pcb-reveal" data-delay="0.10" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="end" x="74" y="63">6</text>
+      <text class="pcb-reveal" data-delay="0.10" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="end" x="74" y="75">5</text>
+
+      <!-- U5: Top-right IC (8-pin DIP) -->
+      <rect class="pcb-ic pcb-reveal" data-delay="0.09" x="826" y="20" width="88" height="72" rx="3"/>
+      <path class="pcb-reveal" data-delay="0.09" d="M862,20 a8,8 0 0,0 16,0" fill="#070e1b" stroke="#3b82f6" stroke-width="1.2"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.09" cx="833" cy="27" r="2"/>
+      <line class="pcb-reveal" data-delay="0.10" data-opacity="0.25" x1="829" y1="56" x2="911" y2="56" stroke="#60a5fa" stroke-width="0.6" stroke-dasharray="4,3"/>
+      <line class="pcb-reveal" data-delay="0.10" data-opacity="0.55" x1="826" y1="38" x2="832" y2="38" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.10" data-opacity="0.55" x1="826" y1="52" x2="832" y2="52" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.10" data-opacity="0.55" x1="826" y1="66" x2="832" y2="66" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.10" data-opacity="0.55" x1="826" y1="80" x2="832" y2="80" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.10" data-opacity="0.55" x1="914" y1="38" x2="908" y2="38" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.10" data-opacity="0.55" x1="914" y1="52" x2="908" y2="52" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.10" data-opacity="0.55" x1="914" y1="66" x2="908" y2="66" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.10" data-opacity="0.55" x1="914" y1="80" x2="908" y2="80" stroke="#3b82f6" stroke-width="1.2"/>
+      <text class="pcb-reveal" data-delay="0.11" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" x="834" y="41">1</text>
+      <text class="pcb-reveal" data-delay="0.11" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" x="834" y="55">2</text>
+      <text class="pcb-reveal" data-delay="0.11" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" x="834" y="69">3</text>
+      <text class="pcb-reveal" data-delay="0.11" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" x="834" y="83">4</text>
+      <text class="pcb-reveal" data-delay="0.11" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="end" x="906" y="41">8</text>
+      <text class="pcb-reveal" data-delay="0.11" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="end" x="906" y="55">7</text>
+      <text class="pcb-reveal" data-delay="0.11" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="end" x="906" y="69">6</text>
+      <text class="pcb-reveal" data-delay="0.11" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="end" x="906" y="83">5</text>
+
+      <!-- R3 (10K) + R4 (4K7) + R5 (1K) top resistors -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.16" x="118" y="52" width="52" height="14" rx="2"/>
+      <rect class="pcb-reveal" data-delay="0.17" data-opacity="0.85" x="126" y="53" width="3" height="12" fill="#7B3F00"/>
+      <rect class="pcb-reveal" data-delay="0.17" data-opacity="0.85" x="132" y="53" width="3" height="12" fill="#141414"/>
+      <rect class="pcb-reveal" data-delay="0.17" data-opacity="0.85" x="138" y="53" width="3" height="12" fill="#FF7300"/>
+      <rect class="pcb-reveal" data-delay="0.17" data-opacity="0.85" x="152" y="53" width="3" height="12" fill="#D4AF37"/>
+      <text class="pcb-reveal" data-delay="0.18" data-opacity="0.6" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="middle" x="144" y="76">10K</text>
+
+      <rect class="pcb-component pcb-reveal" data-delay="0.18" x="336" y="52" width="52" height="14" rx="2"/>
+      <rect class="pcb-reveal" data-delay="0.19" data-opacity="0.85" x="344" y="53" width="3" height="12" fill="#FFD700"/>
+      <rect class="pcb-reveal" data-delay="0.19" data-opacity="0.85" x="350" y="53" width="3" height="12" fill="#7B00D4"/>
+      <rect class="pcb-reveal" data-delay="0.19" data-opacity="0.85" x="356" y="53" width="3" height="12" fill="#CC1500"/>
+      <rect class="pcb-reveal" data-delay="0.19" data-opacity="0.85" x="370" y="53" width="3" height="12" fill="#D4AF37"/>
+      <text class="pcb-reveal" data-delay="0.20" data-opacity="0.6" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="middle" x="362" y="76">4K7</text>
+
+      <rect class="pcb-component pcb-reveal" data-delay="0.22" x="548" y="52" width="52" height="14" rx="2"/>
+      <rect class="pcb-reveal" data-delay="0.23" data-opacity="0.85" x="556" y="53" width="3" height="12" fill="#7B3F00"/>
+      <rect class="pcb-reveal" data-delay="0.23" data-opacity="0.85" x="562" y="53" width="3" height="12" fill="#141414"/>
+      <rect class="pcb-reveal" data-delay="0.23" data-opacity="0.85" x="568" y="53" width="3" height="12" fill="#CC1500"/>
+      <rect class="pcb-reveal" data-delay="0.23" data-opacity="0.85" x="582" y="53" width="3" height="12" fill="#D4AF37"/>
+      <text class="pcb-reveal" data-delay="0.24" data-opacity="0.6" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="middle" x="574" y="76">1K</text>
+
+      <!-- Y1: Crystal -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.20" x="438" y="28" width="36" height="26" rx="2"/>
+      <line class="pcb-reveal" data-delay="0.21" data-opacity="0.75" x1="451" y1="30" x2="451" y2="52" stroke="#60a5fa" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.21" data-opacity="0.75" x1="457" y1="30" x2="457" y2="52" stroke="#60a5fa" stroke-width="1.2"/>
+
+      <!-- Z1: Zener right strip -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.16" x="872" y="148" width="28" height="14" rx="1"/>
+      <line class="pcb-reveal" data-delay="0.17" data-opacity="0.8" x1="892" y1="149" x2="892" y2="161" stroke="#60a5fa" stroke-width="1.5"/>
+      <line class="pcb-reveal" data-delay="0.17" data-opacity="0.8" x1="890" y1="149" x2="894" y2="149" stroke="#60a5fa" stroke-width="1"/>
+      <line class="pcb-reveal" data-delay="0.17" data-opacity="0.8" x1="890" y1="161" x2="894" y2="161" stroke="#60a5fa" stroke-width="1"/>
+
+      <!-- R9 (4K7) right strip -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.18" x="860" y="200" width="52" height="14" rx="2"/>
+      <rect class="pcb-reveal" data-delay="0.19" data-opacity="0.85" x="868" y="201" width="3" height="12" fill="#FFD700"/>
+      <rect class="pcb-reveal" data-delay="0.19" data-opacity="0.85" x="874" y="201" width="3" height="12" fill="#7B00D4"/>
+      <rect class="pcb-reveal" data-delay="0.19" data-opacity="0.85" x="880" y="201" width="3" height="12" fill="#CC1500"/>
+      <rect class="pcb-reveal" data-delay="0.19" data-opacity="0.85" x="894" y="201" width="3" height="12" fill="#D4AF37"/>
+      <text class="pcb-reveal" data-delay="0.20" data-opacity="0.6" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="middle" x="886" y="224">4K7</text>
+
+      <!-- R6 (22K) left strip -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.18" x="20" y="202" width="52" height="14" rx="2"/>
+      <rect class="pcb-reveal" data-delay="0.19" data-opacity="0.85" x="28" y="203" width="3" height="12" fill="#CC1500"/>
+      <rect class="pcb-reveal" data-delay="0.19" data-opacity="0.85" x="34" y="203" width="3" height="12" fill="#CC1500"/>
+      <rect class="pcb-reveal" data-delay="0.19" data-opacity="0.85" x="40" y="203" width="3" height="12" fill="#FF7300"/>
+      <rect class="pcb-reveal" data-delay="0.19" data-opacity="0.85" x="54" y="203" width="3" height="12" fill="#D4AF37"/>
+      <text class="pcb-reveal" data-delay="0.20" data-opacity="0.6" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="middle" x="46" y="228">22K</text>
+
+      <!-- L2: Left inductor -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.28" x="22" y="336" width="44" height="18" rx="2"/>
+      <polyline class="pcb-reveal" data-delay="0.29" data-opacity="0.8" points="25,345 28,337 33,337 36,345 39,337 44,337 47,345 50,337 55,337 58,345 61,337 66,337 69,345" fill="none" stroke="#60a5fa" stroke-width="1.2"/>
+
+      <!-- Z2: Bottom-left zener -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.40" x="22" y="462" width="28" height="14" rx="1"/>
+      <line class="pcb-reveal" data-delay="0.41" data-opacity="0.8" x1="42" y1="463" x2="42" y2="475" stroke="#60a5fa" stroke-width="1.5"/>
+      <line class="pcb-reveal" data-delay="0.41" data-opacity="0.8" x1="40" y1="463" x2="44" y2="463" stroke="#60a5fa" stroke-width="1"/>
+      <line class="pcb-reveal" data-delay="0.41" data-opacity="0.8" x1="40" y1="475" x2="44" y2="475" stroke="#60a5fa" stroke-width="1"/>
+
+      <!-- D1: Bottom-left diode -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.42" x="128" y="464" width="28" height="14" rx="1"/>
+      <line class="pcb-reveal" data-delay="0.43" data-opacity="0.8" x1="148" y1="465" x2="148" y2="477" stroke="#60a5fa" stroke-width="1.5"/>
+
+      <!-- U4: Bottom IC (6-pin DIP) -->
+      <rect class="pcb-ic pcb-reveal" data-delay="0.28" x="228" y="360" width="70" height="52" rx="3"/>
+      <path class="pcb-reveal" data-delay="0.28" d="M255,360 a8,8 0 0,0 16,0" fill="#070e1b" stroke="#3b82f6" stroke-width="1"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.28" cx="234" cy="367" r="2"/>
+      <line class="pcb-reveal" data-delay="0.29" data-opacity="0.25" x1="231" y1="386" x2="295" y2="386" stroke="#60a5fa" stroke-width="0.6" stroke-dasharray="3,2"/>
+      <line class="pcb-reveal" data-delay="0.29" data-opacity="0.55" x1="228" y1="376" x2="234" y2="376" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.29" data-opacity="0.55" x1="228" y1="392" x2="234" y2="392" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.29" data-opacity="0.55" x1="228" y1="408" x2="234" y2="408" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.29" data-opacity="0.55" x1="298" y1="376" x2="292" y2="376" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.29" data-opacity="0.55" x1="298" y1="392" x2="292" y2="392" stroke="#3b82f6" stroke-width="1.2"/>
+      <line class="pcb-reveal" data-delay="0.29" data-opacity="0.55" x1="298" y1="408" x2="292" y2="408" stroke="#3b82f6" stroke-width="1.2"/>
+      <text class="pcb-reveal" data-delay="0.30" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" x="236" y="379">1</text>
+      <text class="pcb-reveal" data-delay="0.30" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" x="236" y="395">2</text>
+      <text class="pcb-reveal" data-delay="0.30" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" x="236" y="411">3</text>
+      <text class="pcb-reveal" data-delay="0.30" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="end" x="290" y="379">6</text>
+      <text class="pcb-reveal" data-delay="0.30" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="end" x="290" y="395">5</text>
+      <text class="pcb-reveal" data-delay="0.30" data-opacity="0.4" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="end" x="290" y="411">4</text>
+
+      <!-- Q2: Bottom-right transistor (NPN) -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.36" x="648" y="362" width="52" height="38" rx="3"/>
+      <rect class="pcb-reveal" data-delay="0.37" data-opacity="0.8" x="649" y="390" width="50" height="8" fill="#0a1e38"/>
+      <circle class="pcb-reveal" data-delay="0.37" data-opacity="0.85" cx="656" cy="394" r="2.5" fill="#60a5fa"/>
+      <text class="pcb-reveal" data-delay="0.38" data-opacity="0.55" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#60a5fa" text-anchor="middle" x="674" y="381">NPN</text>
+      <text class="pcb-reveal" data-delay="0.42" data-opacity="0.65" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="middle" x="658" y="440">C</text>
+      <text class="pcb-reveal" data-delay="0.42" data-opacity="0.65" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="middle" x="670" y="440">B</text>
+      <text class="pcb-reveal" data-delay="0.42" data-opacity="0.65" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="middle" x="682" y="440">E</text>
+
+      <!-- Q3: Right-side transistor (NPN) -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.32" x="736" y="328" width="52" height="38" rx="3"/>
+      <rect class="pcb-reveal" data-delay="0.33" data-opacity="0.8" x="737" y="356" width="50" height="8" fill="#0a1e38"/>
+      <circle class="pcb-reveal" data-delay="0.33" data-opacity="0.85" cx="744" cy="360" r="2.5" fill="#60a5fa"/>
+      <text class="pcb-reveal" data-delay="0.34" data-opacity="0.55" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#60a5fa" text-anchor="middle" x="762" y="347">NPN</text>
+      <text class="pcb-reveal" data-delay="0.38" data-opacity="0.65" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="middle" x="746" y="406">C</text>
+      <text class="pcb-reveal" data-delay="0.38" data-opacity="0.65" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="middle" x="758" y="406">B</text>
+      <text class="pcb-reveal" data-delay="0.38" data-opacity="0.65" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#60a5fa" text-anchor="middle" x="770" y="406">E</text>
+
+      <!-- L1: Bottom center inductor -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.44" x="446" y="468" width="46" height="18" rx="2"/>
+      <polyline class="pcb-reveal" data-delay="0.45" data-opacity="0.8" points="449,477 452,469 457,469 460,477 463,469 468,469 471,477 474,469 479,469 482,477 485,469 490,469 493,477" fill="none" stroke="#60a5fa" stroke-width="1.2"/>
+
+      <!-- R7 (1K) + R8 (10K) bottom resistors -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.46" x="308" y="490" width="52" height="14" rx="2"/>
+      <rect class="pcb-reveal" data-delay="0.47" data-opacity="0.85" x="316" y="491" width="3" height="12" fill="#7B3F00"/>
+      <rect class="pcb-reveal" data-delay="0.47" data-opacity="0.85" x="322" y="491" width="3" height="12" fill="#141414"/>
+      <rect class="pcb-reveal" data-delay="0.47" data-opacity="0.85" x="328" y="491" width="3" height="12" fill="#CC1500"/>
+      <rect class="pcb-reveal" data-delay="0.47" data-opacity="0.85" x="342" y="491" width="3" height="12" fill="#D4AF37"/>
+      <text class="pcb-reveal" data-delay="0.48" data-opacity="0.6" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="middle" x="334" y="508">1K</text>
+
+      <rect class="pcb-component pcb-reveal" data-delay="0.48" x="514" y="490" width="52" height="14" rx="2"/>
+      <rect class="pcb-reveal" data-delay="0.49" data-opacity="0.85" x="522" y="491" width="3" height="12" fill="#7B3F00"/>
+      <rect class="pcb-reveal" data-delay="0.49" data-opacity="0.85" x="528" y="491" width="3" height="12" fill="#141414"/>
+      <rect class="pcb-reveal" data-delay="0.49" data-opacity="0.85" x="534" y="491" width="3" height="12" fill="#FF7300"/>
+      <rect class="pcb-reveal" data-delay="0.49" data-opacity="0.85" x="548" y="491" width="3" height="12" fill="#D4AF37"/>
+      <text class="pcb-reveal" data-delay="0.50" data-opacity="0.6" font-family="JetBrains Mono,monospace" font-size="7" fill="#60a5fa" text-anchor="middle" x="540" y="508">10K</text>
+
+      <!-- D2 + D3: bottom diodes -->
+      <rect class="pcb-component pcb-reveal" data-delay="0.42" x="712" y="464" width="28" height="14" rx="1"/>
+      <line class="pcb-reveal" data-delay="0.43" data-opacity="0.8" x1="732" y1="465" x2="732" y2="477" stroke="#60a5fa" stroke-width="1.5"/>
+      <rect class="pcb-component pcb-reveal" data-delay="0.44" x="838" y="464" width="28" height="14" rx="1"/>
+      <line class="pcb-reveal" data-delay="0.45" data-opacity="0.8" x1="858" y1="465" x2="858" y2="477" stroke="#60a5fa" stroke-width="1.5"/>
 
       <!-- ===== VIAS ===== -->
 
@@ -354,6 +699,101 @@
       <text class="pcb-label-ref pcb-reveal" data-delay="0.38" x="166" y="371">Q1</text>
       <text class="pcb-label-ref pcb-reveal" data-delay="0.42" x="762" y="421">FU1</text>
       <text class="pcb-label-ref pcb-reveal" data-delay="0.33" x="835" y="239">U2</text>
+
+      <!-- ===== NEW COMPONENT VIAS ===== -->
+
+      <!-- U3 pin vias -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.08" cx="8" cy="36" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.08" cx="8" cy="48" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.08" cx="8" cy="60" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.08" cx="8" cy="72" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.08" cx="94" cy="36" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.08" cx="94" cy="48" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.08" cx="94" cy="60" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.08" cx="94" cy="72" r="3"/>
+      <!-- U5 pin vias (left side only; right go off-screen) -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.09" cx="814" cy="38" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.09" cx="814" cy="52" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.09" cx="814" cy="66" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.09" cx="814" cy="80" r="3"/>
+      <!-- U4 pin vias -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.28" cx="216" cy="376" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.28" cx="216" cy="392" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.28" cx="310" cy="376" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.28" cx="310" cy="392" r="3"/>
+      <!-- Top bus corners (R3/R4/Y1/R5 chain) -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.16" cx="94" cy="59" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.18" cx="194" cy="59" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.18" cx="312" cy="59" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.18" cx="412" cy="59" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.20" cx="412" cy="41" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.20" cx="498" cy="41" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.22" cx="524" cy="59" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.22" cx="624" cy="59" r="3"/>
+      <!-- C2 top/bottom lead vias -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.14" cx="226" cy="88" r="3"/>
+      <!-- Z1 vias -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.16" cx="848" cy="155" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.16" cx="930" cy="155" r="3"/>
+      <!-- R9 vias -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.18" cx="836" cy="207" r="3"/>
+      <!-- C4 top/bottom lead vias -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.38" cx="904" cy="358" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.38" cx="904" cy="416" r="3"/>
+      <!-- R6 right via + bus junction -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.18" cx="96" cy="209" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.20" cx="152" cy="209" r="3"/>
+      <!-- C3 vias -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.22" cx="44" cy="258" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.22" cx="44" cy="316" r="3"/>
+      <!-- L2 right via + junction with x=76 bus -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.28" cx="90" cy="345" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.30" cx="76" cy="345" r="3"/>
+      <!-- Q2 lead vias -->
+      <circle class="pcb-via--lg pcb-reveal" data-delay="0.36" cx="658" cy="426" r="4"/>
+      <circle class="pcb-via--lg pcb-reveal" data-delay="0.36" cx="670" cy="426" r="4"/>
+      <circle class="pcb-via--lg pcb-reveal" data-delay="0.36" cx="682" cy="426" r="4"/>
+      <!-- Q3 lead vias -->
+      <circle class="pcb-via--lg pcb-reveal" data-delay="0.32" cx="746" cy="392" r="4"/>
+      <circle class="pcb-via--lg pcb-reveal" data-delay="0.32" cx="758" cy="392" r="4"/>
+      <circle class="pcb-via--lg pcb-reveal" data-delay="0.32" cx="770" cy="392" r="4"/>
+      <!-- L1 lead vias -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.44" cx="422" cy="477" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.44" cx="516" cy="477" r="3"/>
+      <!-- R7/R8 corners -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.46" cx="284" cy="480" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.46" cx="384" cy="497" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.48" cx="490" cy="477" r="3"/>
+      <!-- C5 top/bottom vias -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.42" cx="636" cy="460" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.44" cx="636" cy="360" r="3"/>
+      <!-- D1/D2/D3 cathode vias -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.42" cx="112" cy="471" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.42" cx="180" cy="471" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.42" cx="686" cy="471" r="3"/><circle class="pcb-via pcb-reveal" data-delay="0.44" cx="764" cy="471" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.44" cx="814" cy="471" r="3"/>
+      <!-- Z2 right via -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.40" cx="50" cy="469" r="3"/>
+      <!-- C4 route junction -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.40" cx="888" cy="358" r="3"/>
+      <!-- Q3-B corner junction via -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.34" cx="758" cy="360" r="3"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.34" cx="782" cy="360" r="3"/>
+      <!-- Q2-B corner junction -->
+      <circle class="pcb-via pcb-reveal" data-delay="0.38" cx="670" cy="360" r="3"/>
+
+      <!-- ===== NEW COMPONENT LABELS ===== -->
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.10" x="51" y="14">U3</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.11" x="870" y="14">U5</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.30" x="263" y="354">U4</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.16" x="144" y="44">R3</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.18" x="362" y="44">R4</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.22" x="574" y="44">R5</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.18" x="46" y="195">R6</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.18" x="886" y="193">R9</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.46" x="334" y="482">R7</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.48" x="540" y="482">R8</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.20" x="456" y="20">Y1</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.16" x="898" y="141">Z1</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.40" x="36" y="455">Z2</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.28" x="66" y="329">L2</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.44" x="469" y="461">L1</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.42" x="142" y="457">D1</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.42" x="726" y="457">D2</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.44" x="852" y="457">D3</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.36" x="674" y="355">Q2</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.32" x="762" y="321">Q3</text>
+      <!-- C2/C3/C4/C5 polarity markers -->
+      <text class="pcb-reveal" data-delay="0.14" data-opacity="0.7" font-family="JetBrains Mono,monospace" font-size="9" fill="#60a5fa" text-anchor="middle" x="214" y="45">+</text>
+      <text class="pcb-reveal" data-delay="0.22" data-opacity="0.7" font-family="JetBrains Mono,monospace" font-size="9" fill="#60a5fa" text-anchor="middle" x="32" y="276">+</text>
+      <text class="pcb-reveal" data-delay="0.38" data-opacity="0.7" font-family="JetBrains Mono,monospace" font-size="9" fill="#60a5fa" text-anchor="middle" x="892" y="374">+</text>
+      <text class="pcb-reveal" data-delay="0.42" data-opacity="0.7" font-family="JetBrains Mono,monospace" font-size="9" fill="#60a5fa" text-anchor="middle" x="624" y="476">+</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.14" x="240" y="45">C2</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.22" x="58" y="276">C3</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.38" x="918" y="374">C4</text>
+      <text class="pcb-label-ref pcb-reveal" data-delay="0.42" x="650" y="476">C5</text>
     </svg>
   </div>
 
