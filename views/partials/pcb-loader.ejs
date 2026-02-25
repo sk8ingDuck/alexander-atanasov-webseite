@@ -230,7 +230,8 @@
 
       <!-- Z2 bottom-left: leads -->
       <line class="pcb-trace" data-delay="0.40" x1="22" y1="469" x2="-80" y2="469"/>
-      <line class="pcb-trace" data-delay="0.40" x1="50" y1="469" x2="112" y2="469"/>
+      <!-- Z2-R → x=76 vertical bus (corner at 76,469 then up to 76,390) -->
+      <polyline class="pcb-trace" data-delay="0.42" points="50,469 76,469 76,390"/>
 
       <!-- U4 bottom IC: 6 pin stubs -->
       <line class="pcb-trace" data-delay="0.28" x1="228" y1="376" x2="216" y2="376"/>
@@ -702,8 +703,9 @@
       <!-- D2/D3 cathode vias -->
       <circle class="pcb-via pcb-reveal" data-delay="0.42" cx="686" cy="471" r="1.8"/><circle class="pcb-via pcb-reveal" data-delay="0.44" cx="764" cy="471" r="1.8"/>
       <circle class="pcb-via pcb-reveal" data-delay="0.44" cx="814" cy="471" r="1.8"/>
-      <!-- Z2 right via -->
+      <!-- Z2 right via + corner junction -->
       <circle class="pcb-via pcb-reveal" data-delay="0.40" cx="50" cy="469" r="1.8"/>
+      <circle class="pcb-via pcb-reveal" data-delay="0.42" cx="76" cy="469" r="1.8"/>
       <!-- C4 route junction -->
       <circle class="pcb-via pcb-reveal" data-delay="0.40" cx="888" cy="358" r="1.8"/>
       <!-- Q3-B corner junction via -->
